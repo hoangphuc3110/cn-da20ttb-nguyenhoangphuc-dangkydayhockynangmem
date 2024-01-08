@@ -1,0 +1,42 @@
+﻿@model List<SchoolManagement.Models.KyNang>
+
+@{
+    ViewData["Title"] = "Danh Sách Kỹ Năng Đã Đăng Ký";
+}
+
+<h1>Danh Sách Kỹ Năng Đã Đăng Ký</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mã Kỹ Năng</th>
+                <th>Tên Kỹ Năng</th>
+                <!-- Các cột khác có thể thêm tùy theo yêu cầu -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var skill in Model)
+            {
+                <tr>
+                    <td>@skill.MaKyNang</td>
+                    <td>@skill.TenKyNang</td>
+                    <!-- Hiển thị thông tin khác tương ứng nếu cần -->
+                    <td>
+
+                        <form asp-action="RemoveRegisteredSkill" asp-route-skillId="@skill.MaKyNang" method="post">
+                            <input type="submit" value="Remove" class="btn btn-danger" />
+                           
+                        </form>
+                    </td>
+                </tr>
+               
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Không có kỹ năng nào được đăng ký.</p>
+}

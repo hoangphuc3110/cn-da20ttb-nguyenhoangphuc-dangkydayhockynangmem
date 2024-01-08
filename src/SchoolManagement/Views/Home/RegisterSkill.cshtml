@@ -1,0 +1,24 @@
+﻿@model SchoolManagement.Models.DangKyKyNang
+
+@{
+    ViewData["Title"] = "Đăng ký Kỹ Năng";
+}
+
+<h1>Đăng ký Kỹ Năng</h1>
+
+@if (ViewBag.Skills != null)
+{
+    using (Html.BeginForm("RegisterSkill", "Home", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label for="MaKyNang">Chọn Kỹ Năng:</label>
+            @Html.DropDownListFor(model => model.MaKyNang, ViewBag.Skills as SelectList, "-- Chọn Kỹ Năng --", new { @class = "form-control" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Đăng ký</button>
+    }
+}
+else
+{
+    <p>Không có kỹ năng nào để đăng ký.</p>
+}

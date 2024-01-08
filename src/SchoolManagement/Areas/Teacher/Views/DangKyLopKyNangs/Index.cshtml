@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SchoolManagement.Models.DangKyLopKyNang>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+}
+
+<h1>Đăng ký lớp kỹ năng</h1>
+
+<p>
+    <a asp-action="Create">Đăng ký lớp</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Giáo Viên
+            </th>
+            <th>
+                Mã Lớp Kỹ Năng
+            </th>
+            <th>
+                Mã Phòng
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.MaGiaoVienNavigation.TenGiaoVien
+                </td>
+                <td>
+                    @item.MaLopKyNangNavigation.MaLopKyNang - @item.MaLopKyNangNavigation.TenLopKyNang
+                </td>
+                <td>
+                    @if (item.MaLopKyNangNavigation.MaBoMonNavigation?.LopKyNangs?.FirstOrDefault()?.MaBoMonNavigation?.Lops?.FirstOrDefault()?.Phongs?.FirstOrDefault()?.MaPhong != null)
+                    {
+                        @item.MaLopKyNangNavigation.MaBoMonNavigation.LopKyNangs.FirstOrDefault()?.MaBoMonNavigation.Lops.FirstOrDefault()?.Phongs.FirstOrDefault()?.MaPhong
+                    }
+                    else
+                    {
+                        <text>No data available</text>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Hủy lớp</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,17 @@
+﻿@model SchoolManagement.Models.DangKyLopKyNang
+
+@{
+    ViewData["Title"] = "Register Skill Class";
+}
+
+<h1>Register Skill Class</h1>
+
+@using (Html.BeginForm("RegisterSkillClass", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Select Skill Class:</label>
+        @Html.DropDownList("selectedSkillClass", ViewBag.SkillClasses as SelectList, "Choose Skill Class", new { @class = "form-control" })
+        @Html.ValidationMessage("RegistrationError", new { @class = "text-danger" })
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+}

@@ -1,0 +1,42 @@
+﻿@model SchoolManagement.Models.ChamDiem
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+}
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        
+        
+            <div class="form-group">
+                <label asp-for="MaSinhVien" class="control-label">Mã Sinh Viên</label>
+                <select asp-for="MaSinhVien" class ="form-control" asp-items="ViewBag.MaSinhVien"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaKyNang" class="control-label">Mã Kỹ Năng</label>
+                <select asp-for="MaKyNang" class ="form-control" asp-items="ViewBag.MaKyNang"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dat" class="control-label">Điểm</label>
+                <input asp-for="Dat" class="form-control" />
+                <span asp-validation-for="Dat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Chấm Điểm" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

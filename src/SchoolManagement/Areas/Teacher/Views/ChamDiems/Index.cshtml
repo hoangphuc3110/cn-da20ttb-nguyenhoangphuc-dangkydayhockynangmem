@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SchoolManagement.Models.ChamDiem>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+}
+
+
+
+<p>
+    <a asp-action="Create">Chấm Điểm</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                Mã Sinh Viên
+            </th>
+            <th>
+                Mã Kỹ Năng
+            </th>
+        
+            <th>
+                Điểm
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaSinhVienNavigation.MaSinhVien)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaKyNangNavigation.MaKyNang)
+                </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Dat)
+            </td>
+           
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Sửa Điểm</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

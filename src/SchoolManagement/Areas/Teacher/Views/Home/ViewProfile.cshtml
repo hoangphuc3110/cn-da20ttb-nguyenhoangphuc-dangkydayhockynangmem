@@ -1,0 +1,17 @@
+﻿@model SchoolManagement.Models.GiaoVien
+
+@{
+    ViewData["Title"] = "Thông Tin Cá Nhân";
+}
+
+<h1>Thông Tin Cá Nhân</h1>
+
+<div>
+    <p><strong>Mã Sinh Viên:</strong> @Model.MaGiaoVien</p>
+    <p><strong>Tên:</strong> @Model.TenGiaoVien</p>
+    <p><strong>Ngày Sinh:</strong> @Model.NgaySinh?.ToString("dd/MM/yyyy")</p>
+    <p><strong>Giới Tính:</strong> @Model.GioiTinh</p>
+    <p><strong>Mã Bộ Môn:</strong> @Model.MaBoMon</p>
+    
+    <!-- Các thông tin cá nhân khác có thể thêm tùy theo yêu cầu -->
+</div>

@@ -1,0 +1,29 @@
+﻿@model SchoolManagement.Models.ChamDiem
+
+<h1>Edit ChamDiem</h1>
+
+<form asp-action="Edit">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="MaGiaoVien" class="control-label"></label>
+        <input asp-for="MaGiaoVien" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="MaSinhVien" class="control-label"></label>
+        <input asp-for="MaSinhVien" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="MaKyNang" class="control-label"></label>
+        <input asp-for="MaKyNang" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Dat" class="control-label"></label>
+        <input asp-for="Dat" class="form-control" />
+        <span asp-validation-for="Dat" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>

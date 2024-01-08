@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SchoolManagement.Models.SinhVien>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+}
+
+<h2>Danh sách sinh viên đăng ký kỹ năng</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã Sinh Viên</th>
+            <th>Họ Tên</th>
+            <th>Mã lớp</th>
+            <!-- Thêm các cột thông tin khác nếu cần -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => student.MaSinhVien)</td>
+                <td>@Html.DisplayFor(modelItem => student.Ten)</td>
+                <td>@Html.DisplayFor(modelItem => student.MaLop)</td>
+                <!-- Hiển thị các thông tin khác của sinh viên -->
+            </tr>
+        }
+    </tbody>
+</table>
